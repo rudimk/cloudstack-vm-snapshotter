@@ -21,7 +21,7 @@ def runSnapshotCycle():
 
 
 # Schdule snapshot runs for 1AM daily
-schedule.every().day.at("01:00").do(runSnapshotCycle)
+schedule.every().day.at(os.getenv('SNAPSHOT_WINDOW')).do(runSnapshotCycle)
 
 
 if __name__ == '__main__':

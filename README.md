@@ -7,12 +7,13 @@ A basic script for taking VM snapshots.
 For best results, run this on Ubuntu 18.04. We're assuming you've cloned this repo to the `ubuntu` user's home directory.
 
 1. Use `pipenv` and the `Pipfile` in this repo to install dependencies, else install them manually: `pip install cs schedule`.
-2. Create a file called `cloudstack-vm-snapshotter.env` in `/home/ubuntu` and fill in the following values:
+2. Create a file called `cloudstack-vm-snapshotter.env` in `/home/ubuntu` and fill in the following values, where `SNAPSHOT_WINDOW` is the hour you'd like the script to start taking snapshots, in `HH:mm` format:
 
 ```
 ACS_API=
 ACS_KEY=
 ACS_SECRET=
+SNAPSHOT_WINDOW=
 
 ```
 3. Next, create the `systemd` configuration for running this at `/etc/systemd/system/cloudstack-vm-snapshotter.service` and add the following to the file:
