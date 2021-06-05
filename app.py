@@ -20,7 +20,13 @@ def runSnapshotCycle():
 		print(f"Creating snapshot: {snapshot}")
 
 
+# Schdule snapshot runs for 1AM daily
+schedule.every().day.at("01:00").do(runSnapshotCycle)
+
+
 if __name__ == '__main__':
-	runSnapshotCycle()
+	print("Initating cloudstack-vm-snapshotter...")
+	schedule.run_pending()
+	time.sleep(1)
 
 
