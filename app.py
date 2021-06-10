@@ -1,6 +1,4 @@
 import os
-import schedule
-import time
 from cs import CloudStack
 
 
@@ -18,13 +16,9 @@ def runSnapshotCycle():
 		print(f"Creating snapshot: {snapshot}")
 
 
-# Schdule snapshot runs for 1AM daily
-schedule.every().day.at(os.getenv('SNAPSHOT_WINDOW')).do(runSnapshotCycle)
-
 
 if __name__ == '__main__':
 	print("Initating cloudstack-vm-snapshotter...")
-	schedule.run_pending()
-	time.sleep(1)
+	runSnapshotCycle()
 
 
