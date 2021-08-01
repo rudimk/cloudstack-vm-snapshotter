@@ -11,8 +11,7 @@ def runSnapshotCycle():
 	deleteSnaps(3)
 
 	# Grab a list of all resources with the 'snapshot' tag in them.
-	# allTags = cs.listTags(listall=True, key='snapshot')
-	allTags = cs.listTags(key='snapshot')
+	allTags = cs.listTags(listall=True, key='snapshot')
 	snapshotSources = []
 
 	if allTags:
@@ -28,8 +27,7 @@ def runSnapshotCycle():
 
 def deleteSnaps(ndays):
 
-	# allsnaps = cs.listVMSnapshot(listall=True)
-	allSnaps = cs.listVMSnapshot()
+	allSnaps = cs.listVMSnapshot(listall=True)
 	utc = arrow.now('IST')
 
 	if allSnaps:
